@@ -1,0 +1,17 @@
+GNUmakefile
+LICENSE
+README.rst
+VERSION
+impala/__init__.py
+impala/fs.py
+pypi/classification
+pypi/manifest
+setup.cfg
+setup.py
+tests/finder-basics.t
+tests/fix0/__init__.py
+tests/impalatest.py
+tests/index.rst
+tests/loader-basics.t
+tests/mkindex.py
+tests/register.t

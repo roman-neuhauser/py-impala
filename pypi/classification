@@ -1,0 +1,11 @@
+Development Status :: 3 - Alpha
+Environment :: Plugins
+Intended Audience :: Developers
+License :: OSI Approved :: MIT License
+Natural Language :: English
+Operating System :: OS Independent
+Operating System :: POSIX
+Programming Language :: Python
+Programming Language :: Python :: 2.7
+Topic :: Software Development :: Libraries :: Python Modules
+Topic :: Software Development :: Testing
