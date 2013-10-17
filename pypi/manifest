@@ -10,6 +10,7 @@ setup.cfg
 setup.py
 tests/finder-basics.t
 tests/fix0/__init__.py
+tests/fix1/guinea.py
 tests/impalatest.py
 tests/index.rst
 tests/loader-basics.t
