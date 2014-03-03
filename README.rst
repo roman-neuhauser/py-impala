@@ -113,11 +113,10 @@ Example: ::
 License
 =======
 
-*py-impala* is distributed under the `MIT license`_.  See `LICENSE`_
+*py-impala* is distributed under the `MIT license`_.  See `LICENSE`
 for details.
 
-.. _MIT license: http://...
-.. _LICENSE: LICENSE
+.. _MIT license: http://opensource.org/licenses/MIT
 
 
 Installation
