@@ -13,7 +13,7 @@ Basic operation (success)::
   >>> impala.register(dict(rofl = 'tests/fix0'))
   >>> import rofl
   >>> rofl.__file__
-  '...tests/fix0/__init__.py'
+  'tests/fix0/__init__.py'
 
 Basic operation (failure)::
 
@@ -21,5 +21,5 @@ Basic operation (failure)::
   ...   impala.register(dict(rofl = 'tests/nonexistent'))
   ... except OSError as e:
   ...   print(e)
-  [Errno 2] No such file or directory: '...tests/nonexistent'
+  [Errno 2] No such file or directory: 'tests/nonexistent'
 

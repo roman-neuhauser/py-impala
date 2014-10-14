@@ -22,7 +22,7 @@ It will complain::
   ...   )
   ... except OSError as e:
   ...   print(e)
-  [Errno 2] No such file or directory: '...tests/nonexistent'
+  [Errno 2] No such file or directory: 'tests/nonexistent'
 
 Create a Loader for a package::
 
@@ -34,7 +34,7 @@ Create a Loader for a package::
 Check that it has sensible `repr()` result::
 
   >>> repr(ldr0)
-  "impala.Loader('foo', '...tests/fix0')"
+  "impala.Loader('foo', 'tests/fix0')"
 
 Have it load something it is not responsible for::
 
@@ -47,20 +47,20 @@ Have it load the correct package::
 
   >>> mod1 = ldr0.load_module('foo')
   >>> mod1
-  <module 'foo' from '...tests/fix0/__init__.py'>
+  <module 'foo' from 'tests/fix0/__init__.py'>
 
 PEP302 lists some properties all modules must define::
 
   >>> mod1.__file__
-  '...tests/fix0/__init__.py'
+  'tests/fix0/__init__.py'
   >>> mod1.__name__
   'foo'
   >>> mod1.__package__
   'foo'
   >>> mod1.__path__
-  ['...tests/fix0']
+  ['tests/fix0']
   >>> mod1.__loader__
-  impala.Loader('foo', '...tests/fix0')
+  impala.Loader('foo', 'tests/fix0')
   >>> mod1.__loader__ is ldr0
   True
 
@@ -87,7 +87,7 @@ Have it load the correct package::
 
   >>> mod2 = ldr1.load_module('foo')
   >>> mod2
-  <module 'foo' from '...tests/fix1/guinea.py'>
+  <module 'foo' from 'tests/fix1/guinea.py'>
 
 Verify that it actually loaded the code::
 

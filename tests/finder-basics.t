@@ -18,7 +18,7 @@ It will complain::
   ...   ))
   ... except OSError as e:
   ...   print(e)
-  [Errno 2] No such file or directory: '...tests/nonexistent'
+  [Errno 2] No such file or directory: 'tests/nonexistent'
 
 Create a Finder pointing to an existing directory::
 
@@ -29,13 +29,13 @@ Create a Finder pointing to an existing directory::
 Check that it has sensible `repr()` result::
 
   >>> repr(fdr0)
-  "impala.Finder({'foo': '...tests/fix0'})"
+  "impala.Finder({'foo': 'tests/fix0'})"
 
 Ask the finder for a loader for a package it governs::
 
   >>> ldr0 = fdr0.find_module('foo', None)
   >>> repr(ldr0)
-  "impala.Loader('foo', '...tests/fix0')"
+  "impala.Loader('foo', 'tests/fix0')"
 
 Create a Finder pointing to an existing file::
 
@@ -47,5 +47,5 @@ Ask the finder for a loader for a module it governs::
 
   >>> ldr1 = fdr1.find_module('bar', None)
   >>> repr(ldr1)
-  "impala.Loader('bar', '...tests/fix1/guinea.py')"
+  "impala.Loader('bar', 'tests/fix1/guinea.py')"
 
