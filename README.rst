@@ -71,10 +71,13 @@ should be verifiable without the CUT being installed.
 
 ::
 
+  from os.path import abspath, dirname
   import impala
 
+  root = abspath(dirname(__file__))
+
   impala.register(dict(
-    pyoneer = '<workdir>/src'
+    pyoneer = '%s/src' % root
   ))
 
   import pyoneer
@@ -89,20 +92,23 @@ Description
 ++++++++++++++++++++++++++
 
 `aliases` is a `dict` mapping from fully-qualified module/package
-names to paths to load from.  To load a package `p` from path
+names to paths to load from.  To import a package `p` from path
 `/a/b/c`, `aliases` must include the key `p` with associated value
 `/a/b/c`, and `/a/b/c/__init__.py` must be a valid package entry
-point.  To load a module `m` from path `/k/l/m.py`, `aliases` must
-include the key `m` with associated value `/k/l/m.py`.
+point.  To import a module `m` from path `/f/g/h.py`, `aliases` must
+include the key `m` with associated value `/f/g/h.py`.
 
 Example: ::
 
+  from os.path import abspath, dirname
   import impala
 
+  r = dirname(abspath(__file__))
+
   impala.register({
-    'p': '/a/b/c',
-    'p.q': '/a/b/c/q',
-    'p.q.m': '/a/b/c/q/m.py',
+    'p': '%s/a/b/c' % r,
+    'p.q': '%s/f/g/h' % r,
+    'p.q.m': '%s/k.py' % r,
   })
 
   import p
