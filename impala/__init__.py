@@ -207,7 +207,7 @@ class Loader(object):
     else:
       mod.__package__ = str(fqname.rpartition('.')[0])
 
-    exec fs.get_code(fspath) in mod.__dict__
+    exec(fs.get_code(fspath), mod.__dict__)
 
     return mod
 
@@ -249,5 +249,5 @@ class Loader(object):
       if opa.isdir(ldr.fspath):
         return opa.join(ldr.fspath, '__init__.py')
 
-    raise ImportError, 'No module named %s' % (fqname,)
+    raise ImportError('No module named %s' % fqname)
 

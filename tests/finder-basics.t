@@ -12,12 +12,13 @@ Create a Finder pointing to a nonexistent location.
 It will complain::
 
   >>> import os.path
-  >>> fdr0 = Finder(dict(
-  ...   foo = os.path.join(os.path.dirname(__file__), 'nonexistent')
-  ... ))
-  Traceback (most recent call last):
-    ...
-  OSError: [Errno 2] No such file or directory: '...tests/nonexistent'
+  >>> try:
+  ...   fdr0 = Finder(dict(
+  ...     foo = os.path.join(os.path.dirname(__file__), 'nonexistent')
+  ...   ))
+  ... except OSError as e:
+  ...   print(e)
+  [Errno 2] No such file or directory: '...tests/nonexistent'
 
 Create a Finder pointing to an existing directory::
 

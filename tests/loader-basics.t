@@ -15,13 +15,14 @@ Load the CUT::
 Create a Loader pointing to a nonexistent location.
 It will complain::
 
-  >>> ldr0 = Loader(
-  ...   'foo',
-  ...   os.path.join(os.path.dirname(__file__), 'nonexistent')
-  ... )
-  Traceback (most recent call last):
-    ...
-  OSError: [Errno 2] No such file or directory: '...tests/nonexistent'
+  >>> try:
+  ...   ldr0 = Loader(
+  ...     'foo',
+  ...     os.path.join(os.path.dirname(__file__), 'nonexistent')
+  ...   )
+  ... except OSError as e:
+  ...   print(e)
+  [Errno 2] No such file or directory: '...tests/nonexistent'
 
 Create a Loader for a package::
 
