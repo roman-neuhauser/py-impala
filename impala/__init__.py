@@ -13,10 +13,14 @@ from __future__ import (
 import os
 import os.path as opa
 import sys
-import imp
+import types
 
 from . import fs
 
+# this file includes snippets from PEP302 which reference
+# the `imp` module, but this module is actually not used
+# by the implementation, it's been deprecated in favor of
+# importlib
 
 def register(aliases):
   sys.meta_path.insert(0, Finder(aliases))
@@ -193,7 +197,7 @@ class Loader(object):
     if fqname in sys.modules:
       mod = sys.modules[fqname]
     else:
-      mod = sys.modules.setdefault(fqname, imp.new_module(fqname))
+      mod = sys.modules.setdefault(fqname, types.ModuleType(fqname))
 
     mod.__loader__ = ldr
 
